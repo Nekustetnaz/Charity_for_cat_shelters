@@ -28,11 +28,18 @@ class CharityProjectDB(CharityProjectCreate):
 
 
 class CharityProjectUpdate(CharityProjectBase):
+    invested_amount: Optional[PositiveInt]
 
     @validator('name')
     def name_is_not_none(cls, value: str):
         if value is None:
             raise ValueError('Имя не может быть пустым')
+        return value
+
+    @validator('invested_amount')
+    def invested_amount_is_none(cls, value: str):
+        if value is not None:
+            raise ValueError('Нельзя изменять внесенную сумму')
         return value
 
     @root_validator(skip_on_failure=True)
