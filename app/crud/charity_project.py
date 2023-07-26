@@ -46,7 +46,7 @@ class CRUDCharityProject(CRUDBase):
             CharityProject.close_date,
             CharityProject.create_date,
             CharityProject.description
-        ).where(CharityProject.fully_invested == True)
+        ).where(CharityProject.fully_invested is True)
         db_objs = await session.execute(query)
         return db_objs.mappings().all()
 
