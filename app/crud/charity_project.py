@@ -48,7 +48,6 @@ class CRUDCharityProject(CRUDBase):
             CharityProject.description
         ).where(CharityProject.fully_invested.is_(True))
         db_objs = await session.execute(query)
-        db_objs = db_objs.mappings().all()
         return db_objs.mappings().all()
 
 

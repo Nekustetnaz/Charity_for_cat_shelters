@@ -11,7 +11,6 @@ from app.schemas.charity_project import (CharityProjectCreate,
                                          CharityProjectDB,
                                          CharityProjectUpdate)
 from app.services.sharing import share_donations
-
 from .validators import (check_name_duplicate, check_project_before_delete,
                          check_project_before_edit, check_project_exists)
 
