@@ -1,7 +1,7 @@
-# Charity for cat shelters
+# Charity for shelters
 
 ### Description
-This project helps cat shelters to collect and share donations collecting donations for various targeted projects <br>
+This project helps shelters to collect and share donations collecting donations for various targeted projects <br>
 Several target projects can be opened at the same time. Each project has a name, description and an amount that is planned to be collected. After the required amount is collected, the project is closed. <br>
 Donations to projects are received according to the first in first out principle: all donations go to the project opened earlier than others. When this project collects the necessary amount and closes, donations begin to flow to the next project.
 Reports about fully invested projects could be sent to Google Sheets. 
