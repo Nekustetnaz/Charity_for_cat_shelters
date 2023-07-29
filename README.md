@@ -1,11 +1,25 @@
 # Charity for cat shelters
 
-## Description
-This project helps cat shelters to collect and share donations.<br>
-It uses a sqlite database and provides API access to services.<br>
-The reports about fully invested projects could be sent to Google Sheets. 
+### Description
+This project helps cat shelters to collect and share donations collecting donations for various targeted projects <br>
+Several target projects can be opened at the same time. Each project has a name, description and an amount that is planned to be collected. After the required amount is collected, the project is closed. <br>
+Donations to projects are received according to the first in first out principle: all donations go to the project opened earlier than others. When this project collects the necessary amount and closes, donations begin to flow to the next project.
+Reports about fully invested projects could be sent to Google Sheets. 
 
-## Run service:
+### User roles and access permissions
+- Guest (not authenticated user) — can view a list of all projects;
+- Authenticated user — can view a list of all projects and add donations. This role is assigned by default to each new user;
+- Supepuser — can create and view projects, delete projects without donations, update name and description of an existing project. Set a new required amount for a project (but not less than an amount already contributed);
+No one is allowed to update an amount of deposited donations via the API, delete or modify closed projects, change the dates of creation and closure of projects.
+
+### API services
+- Auth: sign up, sign in, logout;
+- Users: get user, update user;
+- Charity_projects: get, create, update, delete charity projects;
+- Donations: get, create donations;
+- Google: create a report in Google spreadsheets with closed projects. 
+
+### Run service:
 To run the service, use the commands:
 ```
 # Clone the repository and change directory:
@@ -50,10 +64,11 @@ CLIENT_X509_CERT_URL=
 EMAIL=
 ```
 
-## Technologies
+### Technologies
 Python 3 <br>
 FastAPI <br>
 SQLAlchemy <br>
+Alembic
 
-## The author of the project
+### Author
 Anton Akulov - https://github.com/Nekustetnaz
